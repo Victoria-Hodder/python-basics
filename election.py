@@ -7,22 +7,16 @@ def election(probability_A_wins):
         return "B wins"
 
 nr_of_elections = 10_000
-region1 = 0.87
-region2 = 0.65
-region3 = 0.17
-
-candidateA_count = 0
-candidateB_count = 0
+regions = [0.87, 0.65, 0.17]
+candidateA_count = [0, 0, 0]
+candidateB_count = [0, 0, 0]
 
 for i in range(nr_of_elections):
-    if election(region1) == "A wins":
-        candidateA_count += 1
-    else:
-        candidateB_count += 1
+    for count in range(0, 3):
+        if election(regions[count]) == "A wins":
+            candidateA_count[count] += 1
+        else:
+            candidateB_count[count] += 1
 
 print(f"candidateA_count: {candidateA_count}")
 print(f"candidateB_count: {candidateB_count}")
-
-percentage = (candidateA_count / 10_000) * 100
-
-print(f"Percentage A wins: {round(percentage, 2)}")
