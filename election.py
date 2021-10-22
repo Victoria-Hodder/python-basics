@@ -20,3 +20,9 @@ for i in range(nr_of_elections):
 
 print(f"candidateA_count: {candidateA_count}")
 print(f"candidateB_count: {candidateB_count}")
+
+for x in range(0, 3):
+    if candidateA_count[x] > candidateB_count[x]:
+        print(f"Yay, A won in region {x+1}!")
+    else:
+        print(f"Yay, B won in region {x+1}!")
