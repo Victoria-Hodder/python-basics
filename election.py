@@ -28,8 +28,8 @@ def count_candidate_wins():
             else:
                 candidateB_count[count] += 1
 
-    # print(f"candidateA_count: {candidateA_count}")
-    # print(f"candidateB_count: {candidateB_count}")
+    print(f"candidateA_count: {candidateA_count}")
+    print(f"candidateB_count: {candidateB_count}")
     return sum(candidateA_count)
 
 def calculate_percentage():
@@ -42,3 +42,8 @@ def calculate_percentage():
     return f"Candidate A wins {round(percentage_a_wins, 2)}% of the time"
 
 print(calculate_percentage())
+
+"""
+Left to do: "assume that a candidate wins the election if
+they win in at least two of the three regions."
+"""
