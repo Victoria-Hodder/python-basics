@@ -1,28 +1,44 @@
 import random
 
-def election(probability_A_wins):
+def simulate_election(probability_A_wins):
+    """
+    Returns a winning candidate for an individual election run.
+    """
     if random.random() < probability_A_wins:
-        return "A wins"
+        return "A"
     else:
-        return "B wins"
+        return "B"
 
-nr_of_elections = 10_000
-regions = [0.87, 0.65, 0.17]
-candidateA_count = [0, 0, 0]
-candidateB_count = [0, 0, 0]
 
-for i in range(nr_of_elections):
-    for count in range(0, 3):
-        if election(regions[count]) == "A wins":
-            candidateA_count[count] += 1
-        else:
-            candidateB_count[count] += 1
+def count_candidate_wins():
+    """
+    Counts the number of times each candidate wins
+    in each of the three regions.
+    """
+    nr_of_elections = 10_000
+    # List probability that A wins in each region
+    regions = [0.87, 0.65, 0.17]
+    candidateA_count = [0, 0, 0]
+    candidateB_count = [0, 0, 0]
 
-print(f"candidateA_count: {candidateA_count}")
-print(f"candidateB_count: {candidateB_count}")
+    for election in range(nr_of_elections):
+        for count in range(0, 3):
+            if simulate_election(regions[count]) == "A":
+                candidateA_count[count] += 1
+            else:
+                candidateB_count[count] += 1
 
-for x in range(0, 3):
-    if candidateA_count[x] > candidateB_count[x]:
-        print(f"Yay, A won in region {x+1}!")
-    else:
-        print(f"Yay, B won in region {x+1}!")
+    # print(f"candidateA_count: {candidateA_count}")
+    # print(f"candidateB_count: {candidateB_count}")
+    return sum(candidateA_count)
+
+def calculate_percentage():
+    """
+    Percentage of times A wins across the three regions
+    within the given nr of elections (10_000).
+    """
+    total_a_wins = count_candidate_wins()
+    percentage_a_wins = (10_000 / total_a_wins) * 100
+    return f"Candidate A wins {round(percentage_a_wins, 2)}% of the time"
+
+print(calculate_percentage())
