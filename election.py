@@ -2,7 +2,7 @@ import random
 
 def simulate_election(probability_A_wins):
     """
-    Returns a winning candidate for an individual election run.
+    Randomly returns a winning candidate.
     """
     if random.random() < probability_A_wins:
         return "A"
@@ -16,7 +16,7 @@ def count_candidate_wins_by_region():
     in each of the three regions in one election run.
 
     For simplicity this function only returns a list
-    of the count candidate wins in each region
+    of the count candidate A wins in each region
     """
     # List containing probability that A wins in each region
     regions = [0.87, 0.65, 0.17]
