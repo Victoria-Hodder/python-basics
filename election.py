@@ -1,10 +1,10 @@
 import random
 
-def simulate_vote(probability_A_wins):
+def simulate_vote(probability_a_wins):
     """
     Randomly returns a winning candidate.
     """
-    if random.random() < probability_A_wins:
+    if random.random() < probability_a_wins:
         return "A"
     else:
         return "B"
@@ -20,16 +20,16 @@ def count_candidate_regional_wins():
     """
     # List containing probability that A wins in each region
     regions = [0.87, 0.65, 0.17]
-    candidateA_count = [0, 0, 0]
-    candidateB_count = [0, 0, 0]
+    candidate_a_count = [0, 0, 0]
+    candidate_b_count = [0, 0, 0]
 
     for count in range(0, 3):
         if simulate_vote(regions[count]) == "A":
-            candidateA_count[count] += 1
+            candidate_a_count[count] += 1
         else:
-            candidateB_count[count] += 1
+            candidate_b_count[count] += 1
 
-    return sum(candidateA_count)
+    return sum(candidate_a_count)
 
 def count_candidate_election_wins():
     """
