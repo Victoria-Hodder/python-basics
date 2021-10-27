@@ -1,6 +1,6 @@
 import random
 
-def simulate_election(probability_A_wins):
+def simulate_vote(probability_A_wins):
     """
     Randomly returns a winning candidate.
     """
@@ -10,7 +10,7 @@ def simulate_election(probability_A_wins):
         return "B"
 
 
-def count_candidate_wins_by_region():
+def count_candidate_regional_wins():
     """
     Counts the number of times each candidate wins
     in each of the three regions in one election run.
@@ -24,14 +24,14 @@ def count_candidate_wins_by_region():
     candidateB_count = [0, 0, 0]
 
     for count in range(0, 3):
-        if simulate_election(regions[count]) == "A":
+        if simulate_vote(regions[count]) == "A":
             candidateA_count[count] += 1
         else:
             candidateB_count[count] += 1
 
     return sum(candidateA_count)
 
-def count_candidate_wins():
+def count_candidate_election_wins():
     """
     Count the number of times each candidate wins in a
     run of 10,000 elections.
@@ -44,7 +44,7 @@ def count_candidate_wins():
     count_b_wins = 0
 
     for election in range(nr_of_elections):
-        if count_candidate_wins_by_region() >= 2:
+        if count_candidate_regional_wins() >= 2:
             count_a_wins += 1
         else:
             count_b_wins += 1
@@ -59,7 +59,7 @@ def calculate_percentage():
     Percentage of times A wins across the three regions
     within the given nr of elections (10_000).
     """
-    total_a_wins = count_candidate_wins()
+    total_a_wins = count_candidate_election_wins()
     percentage_a_wins = (total_a_wins / 10_000) * 100
     return f"Candidate A wins {round(percentage_a_wins, 2)}% of the time"
 
