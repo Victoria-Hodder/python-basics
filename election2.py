@@ -16,9 +16,11 @@ def count_candidate_regional_wins():
     in each of the three regions in one election run.
 
     For simplicity this function only returns a list
-    of the count candidate A wins in each region
+    of the count candidate A wins in each region.
+
+    "regions" is a list containing probability that A wins
+    in each region.
     """
-    # List containing probability that A wins in each region
     regions = [0.87, 0.65, 0.17]
     candidate_a_count = [0, 0, 0]
     candidate_b_count = [0, 0, 0]
@@ -31,6 +33,13 @@ def count_candidate_regional_wins():
 
     return sum(candidate_a_count)
 
+"""
+Count the number of times each candidate wins in a
+run of 10,000 elections.
+
+The candidate wins the election if they in at least
+two of the three regions
+"""
 nr_of_elections = 10_000
 total_a_wins = 0
 total_b_wins = 0
@@ -41,5 +50,9 @@ for election in range(nr_of_elections):
     else:
         total_b_wins += 1
 
+"""
+Calculate percentage of times A wins across the three regions
+within the given nr of elections (10_000).
+"""
 percentage_a_wins = (total_a_wins / 10_000) * 100
 print(f"Candidate A wins {round(percentage_a_wins, 2)}% of the time")
