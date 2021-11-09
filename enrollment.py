@@ -16,10 +16,6 @@ universities = [
     ['Yale', 11701, 40500]
 ]
 
-# List the names of the universities
-# for item in universities:
-#     print(item[0])
-
 """
 enrollment_stats() should return two lists, the first containing all the
 student enrollment values and the second containing all the tuition
@@ -34,5 +30,26 @@ def enrollment_stats(universities):
 # Tuple unpacking
 student_enrollments, tuition_fees = enrollment_stats(universities)
 
-print(f"Student enrollments: {student_enrollments}")
-print(f"Tuition fees: {tuition_fees}")
+# print(f"Student enrollments: {student_enrollments}")
+# print(f"Tuition fees: {tuition_fees}")
+
+def calculate_mean(list_of_numbers):
+    mean_sum = sum(list_of_numbers) / len(list_of_numbers)
+    return round(mean_sum, 2)
+
+print(f"Student mean: {calculate_mean(student_enrollments)}")
+print(f"Tuition mean: {calculate_mean(tuition_fees)}")
+
+def calculate_median(list_of_numbers):
+    list_of_numbers.sort()
+    sorted_numbers = list_of_numbers
+    return sorted_numbers
+
+print(calculate_median(student_enrollments))
+print(calculate_median(tuition_fees))
+
+
+# cities = ['London', 'Paris', 'Rome', 'Los Angeles', 'New York']
+# cities.sort()
+# sorted_cities = cities
+# print(sorted_cities)
