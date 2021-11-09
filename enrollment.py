@@ -1,4 +1,6 @@
 
+import statistics
+
 """
 Items of universities list:
 1. The name of a university
@@ -41,15 +43,8 @@ print(f"Student mean: {calculate_mean(student_enrollments)}")
 print(f"Tuition mean: {calculate_mean(tuition_fees)}")
 
 def calculate_median(list_of_numbers):
-    list_of_numbers.sort()
-    sorted_numbers = list_of_numbers
-    return sorted_numbers
+    median_number = statistics.median(list_of_numbers)
+    return median_number
 
-print(calculate_median(student_enrollments))
-print(calculate_median(tuition_fees))
-
-
-# cities = ['London', 'Paris', 'Rome', 'Los Angeles', 'New York']
-# cities.sort()
-# sorted_cities = cities
-# print(sorted_cities)
+print(f"Student median: {calculate_median(student_enrollments)}")
+print(f"Tuition median: {calculate_median(tuition_fees)}")
