@@ -18,36 +18,48 @@ universities = [
     ['Yale', 11701, 40500]
 ]
 
-"""
-enrollment_stats() should return two lists, the first containing all the
-student enrollment values and the second containing all the tuition
-fees.
-"""
-
 def enrollment_stats(universities):
+    """
+    Returns two lists, the first containing all the student enrollment
+    values and the second containing all the tuition fees.
+    """
     student_enrollments = [item[1] for item in universities]
     tuition_fees = [item[2] for item in universities]
     return student_enrollments, tuition_fees
 
-# Tuple unpacking
+"""
+Unpack tuples to assign student_enrollments and tuition_fees
+to separate variables
+"""
 student_enrollments, tuition_fees = enrollment_stats(universities)
 
 total_student_enrollments = sum(student_enrollments)
 total_tuition_fees = sum(tuition_fees)
 
-print(f"Student total: {total_student_enrollments:,}")
-print(f"Tuition total: $ {total_tuition_fees:,}")
-
 def calculate_mean(list_of_numbers):
+    """
+    Returns the mean of a given list of integers
+    """
     mean_sum = sum(list_of_numbers) / len(list_of_numbers)
     return mean_sum
 
-print(f"Student mean: {calculate_mean(student_enrollments):,.2f}")
-print(f"Tuition mean: $ {calculate_mean(tuition_fees):,.2f}")
-
 def calculate_median(list_of_numbers):
+    """
+    Returns the median of a given list of integers
+    """
     median_number = statistics.median(list_of_numbers)
     return median_number
 
-print(f"Student median: {calculate_median(student_enrollments)}")
+
+print(30 * '*')
+
+print(f"Student total: {total_student_enrollments:,}")
+print(f"Tuition total: $ {total_tuition_fees:,}\n")
+
+print(f"Student mean: {calculate_mean(student_enrollments):,.2f}")
+print(f"Student median: {calculate_median(student_enrollments):,}\n")
+
+print(f"Tuition mean: $ {calculate_mean(tuition_fees):,.2f}")
 print(f"Tuition median: $ {calculate_median(tuition_fees):,}")
+
+print(30 * '*')
