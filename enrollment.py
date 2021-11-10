@@ -47,8 +47,23 @@ def calculate_median(list_of_numbers):
     """
     Returns the median of a given list of integers
     """
-    median_number = statistics.median(list_of_numbers)
-    return median_number
+#     median_number = statistics.median(list_of_numbers)
+#     return median_number
+
+    list_of_numbers = sorted(list_of_numbers)
+
+    # Find if length of list even or odd
+    if len(list_of_numbers) % 2 == 0:
+        # Use indices to find middle numbers
+        idx_1 = int(len(list_of_numbers) / 2)
+        idx_2 = int((len(list_of_numbers) / 2) - 1)
+        # Calculate median by adding the two middle numbers and dividing by 2
+        median = int((list_of_numbers[idx_1] + list_of_numbers[idx_2]) / 2)
+        return median
+    else:
+        idx = int((len(list_of_numbers) / 2) - 0.5)
+        median = list_of_numbers[idx]
+        return median
 
 
 print(30 * '*')
