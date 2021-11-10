@@ -32,19 +32,22 @@ def enrollment_stats(universities):
 # Tuple unpacking
 student_enrollments, tuition_fees = enrollment_stats(universities)
 
-# print(f"Student enrollments: {student_enrollments}")
-# print(f"Tuition fees: {tuition_fees}")
+total_student_enrollments = sum(student_enrollments)
+total_tuition_fees = sum(tuition_fees)
+
+print(f"Student total: {total_student_enrollments:,}")
+print(f"Tuition total: $ {total_tuition_fees:,}")
 
 def calculate_mean(list_of_numbers):
     mean_sum = sum(list_of_numbers) / len(list_of_numbers)
-    return round(mean_sum, 2)
+    return mean_sum
 
-print(f"Student mean: {calculate_mean(student_enrollments)}")
-print(f"Tuition mean: {calculate_mean(tuition_fees)}")
+print(f"Student mean: {calculate_mean(student_enrollments):,.2f}")
+print(f"Tuition mean: $ {calculate_mean(tuition_fees):,.2f}")
 
 def calculate_median(list_of_numbers):
     median_number = statistics.median(list_of_numbers)
     return median_number
 
 print(f"Student median: {calculate_median(student_enrollments)}")
-print(f"Tuition median: {calculate_median(tuition_fees)}")
+print(f"Tuition median: $ {calculate_median(tuition_fees):,}")
