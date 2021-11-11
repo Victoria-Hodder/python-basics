@@ -1,6 +1,4 @@
 
-import statistics
-
 """
 Items of universities list:
 1. The name of a university
@@ -27,49 +25,42 @@ def enrollment_stats(universities):
     tuition_fees = [item[2] for item in universities]
     return student_enrollments, tuition_fees
 
+def calculate_mean(list_of_numbers):
+    """
+    Returns the mean of a given list of integers
+    """
+    mean_num = sum(list_of_numbers) / len(list_of_numbers)
+    return mean_num
+
+def calculate_median(list_of_numbers):
+    """
+    Returns the median of a given list of integers
+    """
+    list_of_numbers = sorted(list_of_numbers)
+
+    # Find if length of list even or odd
+    if len(list_of_numbers) % 2 == 0:
+        # Use indices to find middle numbers
+        left_center_index = (len(list_of_numbers) // 2) - 1
+        right_center_index = len(list_of_numbers) // 2
+        # Calculate median by adding the two middle numbers and dividing by 2
+        median_num = (list_of_numbers[left_center_index] + list_of_numbers[right_center_index]) // 2
+        return median_num
+    else:
+        center_index = int(len(list_of_numbers) / 2)
+        median_num = list_of_numbers[center_index]
+        return median_num
+
 """
 Unpack tuples to assign student_enrollments and tuition_fees
 to separate variables
 """
 student_enrollments, tuition_fees = enrollment_stats(universities)
 
-total_student_enrollments = sum(student_enrollments)
-total_tuition_fees = sum(tuition_fees)
-
-def calculate_mean(list_of_numbers):
-    """
-    Returns the mean of a given list of integers
-    """
-    mean_sum = sum(list_of_numbers) / len(list_of_numbers)
-    return mean_sum
-
-def calculate_median(list_of_numbers):
-    """
-    Returns the median of a given list of integers
-    """
-#     median_number = statistics.median(list_of_numbers)
-#     return median_number
-
-    list_of_numbers = sorted(list_of_numbers)
-
-    # Find if length of list even or odd
-    if len(list_of_numbers) % 2 == 0:
-        # Use indices to find middle numbers
-        idx_1 = int(len(list_of_numbers) / 2)
-        idx_2 = int((len(list_of_numbers) / 2) - 1)
-        # Calculate median by adding the two middle numbers and dividing by 2
-        median = int((list_of_numbers[idx_1] + list_of_numbers[idx_2]) / 2)
-        return median
-    else:
-        idx = int((len(list_of_numbers) / 2) - 0.5)
-        median = list_of_numbers[idx]
-        return median
-
-
 print(30 * '*')
 
-print(f"Student total: {total_student_enrollments:,}")
-print(f"Tuition total: $ {total_tuition_fees:,}\n")
+print(f"Student total: {sum(student_enrollments):,}")
+print(f"Tuition total: $ {sum(tuition_fees):,}\n")
 
 print(f"Student mean: {calculate_mean(student_enrollments):,.2f}")
 print(f"Student median: {calculate_median(student_enrollments):,}\n")
