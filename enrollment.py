@@ -1,21 +1,4 @@
 
-"""
-Items of universities list:
-1. The name of a university
-2. The total number of enrolled students
-3. The annual tuition fees
-"""
-
-universities = [
-    ['California Institute of Technology', 2175, 37704],
-    ['Harvard', 19627, 39849],
-    ['Massachusetts Institute of Technology', 10566, 40732],
-    ['Princeton', 7802, 37000],
-    ['Rice', 5879, 35551],
-    ['Stanford', 19535, 40569],
-    ['Yale', 11701, 40500]
-]
-
 def enrollment_stats(universities):
     """
     Returns two lists, the first containing all the student enrollment
@@ -50,6 +33,23 @@ def calculate_median(list_of_numbers):
         center_index = int(len(list_of_numbers) / 2)
         median_num = list_of_numbers[center_index]
         return median_num
+
+"""
+Items of universities list:
+1. The name of a university
+2. The total number of enrolled students
+3. The annual tuition fees
+"""
+
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+]
 
 """
 Unpack tuples to assign student_enrollments and tuition_fees
