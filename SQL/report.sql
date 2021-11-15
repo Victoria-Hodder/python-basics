@@ -16,3 +16,15 @@ end
 from students s, grades g
 where s.marks between g.min_mark and g.max_mark
 order by g.grade desc, s.name;
+
+-- replace names with NULL if grade less than 8
+select
+    case
+        when g.grade < 8 then replace(s.name, s.name, 'NULL')
+        else s.name
+    end name,
+    g.grade,
+    s.marks
+from students s, grades g
+where s.marks between g.min_mark and g.max_mark
+order by g.grade desc, s.name;
