@@ -27,4 +27,9 @@ select
     s.marks
 from students s, grades g
 where s.marks between g.min_mark and g.max_mark
-order by g.grade desc, s.name;
+order by g.grade desc, s.name, s.marks;
+
+/* add s.marks to the order by to cover the case that if two NULL students
+   (with grades 1-7) have the same grade then they are listed according to
+   their marks (not their name)
+*/
