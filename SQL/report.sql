@@ -33,3 +33,15 @@ order by g.grade desc, s.name, s.marks;
    (with grades 1-7) have the same grade then they are listed according to
    their marks (not their name)
 */
+
+-- using join
+select
+    case
+        when g.grade < 8 then replace(s.name, s.name, 'NULL')
+        else s.name
+        end name,
+    g.grade,
+    s.marks
+from students s
+join grades g on s.marks >= g.min_mark and s.marks <= g.max_mark
+order by g.grade desc, s.name, s.marks;
