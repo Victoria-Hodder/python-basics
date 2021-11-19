@@ -39,7 +39,7 @@ select
     case
         when g.grade < 8 then replace(s.name, s.name, 'NULL')
         else s.name
-        end name,
+    end name,
     g.grade,
     s.marks
 from students s
