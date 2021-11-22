@@ -3,8 +3,11 @@
 import random
 
 def choose_a_or_an(word):
-    if word[0] == "a" or word[0] == "e" or word[0] == "i" \
-        or word[0] == "o" or word[0] == "u":
+    """
+    Decides if a word is preceded by "a" or "an" depending on
+    the first letter of the word
+    """
+    if word[0] in ["a", "e", "i", "o", "u"]:
         return f"An {word}"
     else:
         return f"A {word}"
@@ -50,6 +53,7 @@ adverbs = ["curiously",
            "furiously",
            "sensuously"]
 
+""" Assign random words """
 random_noun_1 = random.choice(nouns)
 random_noun_2 = random.choice(nouns)
 random_noun_3 = random.choice(nouns)
@@ -67,7 +71,7 @@ random_adverb = random.choice(adverbs)
 random_preposition_1 = random.choice(prepositions)
 random_preposition_2 = random.choice(prepositions)
 
-
+""" Print poem to the console """
 print(f"{choose_a_or_an(random_adjective_1)} {random_noun_1}")
 
 print()
