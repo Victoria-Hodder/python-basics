@@ -2,7 +2,7 @@
 
 import random
 
-def choose_a_or_an(word):
+def choose_article(word):
     """
     Decides if a word is preceded by "a" or "an" depending on
     the first letter of the word
@@ -54,32 +54,32 @@ adverbs = ["curiously",
            "sensuously"]
 
 """ Assign random words """
-random_noun_1 = random.choice(nouns)
-random_noun_2 = random.choice(nouns)
-random_noun_3 = random.choice(nouns)
+noun_1 = random.choice(nouns)
+noun_2 = random.choice(nouns)
+noun_3 = random.choice(nouns)
 
-random_verb_1 = random.choice(verbs)
-random_verb_2 = random.choice(verbs)
-random_verb_3 = random.choice(verbs)
+verb_1 = random.choice(verbs)
+verb_2 = random.choice(verbs)
+verb_3 = random.choice(verbs)
 
-random_adjective_1 = random.choice(adjectives)
-random_adjective_2 = random.choice(adjectives)
-random_adjective_3 = random.choice(adjectives)
+adj_1 = random.choice(adjectives)
+adj_2 = random.choice(adjectives)
+adj_3 = random.choice(adjectives)
 
-random_adverb = random.choice(adverbs)
+adverb = random.choice(adverbs)
 
-random_preposition_1 = random.choice(prepositions)
-random_preposition_2 = random.choice(prepositions)
+prep_1 = random.choice(prepositions)
+prep_2 = random.choice(prepositions)
 
 """ Print poem to the console """
-print(f"{choose_a_or_an(random_adjective_1)} {random_noun_1}")
+print(f"{choose_article(adj_1)} {noun_1}")
 
 print()
 
-print(f"{choose_a_or_an(random_adjective_1)} {random_noun_1} {random_verb_1} \
-{random_preposition_1} the {random_adjective_2} {random_noun_2}")
+print(f"{choose_article(adj_1)} {noun_1} {verb_1} \
+{prep_1} the {adj_2} {noun_2}")
 
-print(f"{random_adverb}, the {random_noun_1} {random_verb_2}")
+print(f"{adverb}, the {noun_1} {verb_2}")
 
-print(f"the {random_noun_2} {random_verb_3} {random_preposition_2} \
-{choose_a_or_an(random_adjective_3).lower()} {random_noun_3}")
+print(f"the {noun_2} {verb_3} {prep_2} \
+{choose_article(adj_3).lower()} {noun_3}")
