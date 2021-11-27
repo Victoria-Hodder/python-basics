@@ -17,7 +17,14 @@ state, capital = random.choice(list(capitals.items()))
 
 user_input = input(f"What is the capital of {state}? ")
 
-if user_input != capital:
+while user_input.title() != capital:
+    if user_input.lower() == 'exit':
+        print(f"The correct answer is {capital}")
+        print("Better luck next time!")
+        break
+    
     print("Nope, try again")
-else:
+    user_input = input(f"What is the capital of {state}? ")
+
+if user_input.title() == capital:
     print("Yay, correct answer!")
