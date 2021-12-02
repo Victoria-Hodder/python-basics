@@ -9,7 +9,7 @@ times, always starting with the first cat (cat #1). Each time you stop at
 a cat, you check if it has a hat on. If it doesn't, then you put a hat on
 it. If it does, then you take the hat off.
 
-    1. The ﬁrst round, you stop at every cat, placing a hat on each one.
+    1. The first round, you stop at every cat, placing a hat on each one.
 
     2. The second round, you stop only at every second cat (#2, #4, #6,
     #8, and so on).
