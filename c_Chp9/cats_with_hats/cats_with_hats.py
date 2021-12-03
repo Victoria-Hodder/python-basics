@@ -1,26 +1,32 @@
 
-def generate_cats():
-    cats = []
-    for cat in range(1, 11):
-        cats.append(cat)
-    return cats
-
-print(generate_cats())
-
-def generate_cats_dict():
+def put_hats_on_cats():
     cats = {}
-    for cat in range(1, 11):
+    for cat in range(1, 101):
         cats[cat] = True
     return cats
 
-print(generate_cats_dict())
+# print(put_hats_on_cats())
 
-def convert_even_keys_to_false():
-    cats = generate_cats_dict()
+def remove_or_put_hat_on_cat():
+    cats = put_hats_on_cats()
 
-    for key, value in cats.items():
-        if key % 2 == 0:
-            cats[key] = False
+    for round in range(2,101):
+        for key, value in cats.items():
+            if key % round == 0 and value == True:
+                cats[key] = False
+            elif key % round == 0 and value == False:
+                cats[key] = True
+#         print(f"Round {round}: {cats}\n")
     return cats
 
-print(convert_even_keys_to_false())
+# print(remove_or_put_hat_on_cat())
+
+cats = remove_or_put_hat_on_cat().items()
+cats_with_hats = []
+
+for key, value in cats:
+    if value == True:
+        # append key to list
+        cats_with_hats.append(key)
+# return list of cats with hats
+print(cats_with_hats)
