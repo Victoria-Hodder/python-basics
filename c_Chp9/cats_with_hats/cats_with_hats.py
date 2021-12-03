@@ -21,12 +21,15 @@ def remove_or_put_hat_on_cat():
 
 # print(remove_or_put_hat_on_cat())
 
-cats = remove_or_put_hat_on_cat().items()
-cats_with_hats = []
+def output_cats_with_hats():
+    cats = remove_or_put_hat_on_cat().items()
+    cats_with_hats = []
 
-for key, value in cats:
-    if value == True:
-        # append key to list
-        cats_with_hats.append(key)
-# return list of cats with hats
-print(cats_with_hats)
+    for key, value in cats:
+        if value == True:
+            # append key to list
+            cats_with_hats.append(key)
+    # return list of cats with hats
+    return cats_with_hats
+
+print(output_cats_with_hats())
