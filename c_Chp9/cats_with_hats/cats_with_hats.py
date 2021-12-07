@@ -1,23 +1,23 @@
 
-def put_hats_on_all_cats():
+def arrange_cats_in_circle():
     """
-    Place a hat on every cat by assigning each numbered key
-    with a True value
+    Arrange cats in a circle without hats by initialising
+    a dictionary where each numbered key has a False value.
     """
     cats = {}
     for cat in range(1, 101):
-        cats[cat] = True
+        cats[cat] = False
     return cats
 
 def remove_or_put_hat_on_cat():
     """
-    Make 100 circuits around the cats, adding or removing "hats"
-    (i.e. setting the boolean True or False) depending on the
-    circuit number and current boolean value
+    Make 100 circuits around the cats, removing or putting on
+    "hats" (i.e. setting the boolean True or False) depending on
+    the round ("circuit") number and current boolean value.
     """
-    cats = put_hats_on_all_cats()
+    cats = arrange_cats_in_circle()
 
-    for circuit in range(2,101):
+    for circuit in range(1,101):
         for key, value in cats.items():
             if key % circuit == 0 and value == True:
                 cats[key] = False
