@@ -1,5 +1,5 @@
 
-def put_hats_on_cats():
+def put_hats_on_all_cats():
     """
     Place a hat on every cat by assigning each numbered key
     with a True value
@@ -8,8 +8,6 @@ def put_hats_on_cats():
     for cat in range(1, 101):
         cats[cat] = True
     return cats
-
-# print(put_hats_on_cats())
 
 def remove_or_put_hat_on_cat():
     """
@@ -23,7 +21,7 @@ def remove_or_put_hat_on_cat():
     Continue this process until one hundred rounds are made.
     On the last round, stop only at cat #100.
     """
-    cats = put_hats_on_cats()
+    cats = put_hats_on_all_cats()
 
     for round in range(2,101):
         for key, value in cats.items():
@@ -39,11 +37,7 @@ def output_cats_with_hats():
     (i.e. all the cats which have hats)
     """
     cats = remove_or_put_hat_on_cat().items()
-    cats_with_hats = []
-
-    for key, value in cats:
-        if value == True:
-            cats_with_hats.append(key)
+    cats_with_hats = [key for key, value in cats if value == True]
     return cats_with_hats
 
 print(output_cats_with_hats())
