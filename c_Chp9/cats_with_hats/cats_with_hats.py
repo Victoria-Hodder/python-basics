@@ -17,11 +17,11 @@ def remove_or_put_hat_on_cat():
     """
     cats = put_hats_on_all_cats()
 
-    for round in range(2,101):
+    for circuit in range(2,101):
         for key, value in cats.items():
-            if key % round == 0 and value == True:
+            if key % circuit == 0 and value == True:
                 cats[key] = False
-            elif key % round == 0 and value == False:
+            elif key % circuit == 0 and value == False:
                 cats[key] = True
     return cats
 
