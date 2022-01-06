@@ -1,12 +1,11 @@
 
-class Dog():
+class Dog:
 
     species = "Canis familiaris"
 
-    def __init__(self, name, age, coat_color):
+    def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.coat_color = coat_color
 
     def __str__(self):
         return f"{self.name} is {self.age} years old"
@@ -14,10 +13,30 @@ class Dog():
     def speak(self, sound):
         return f"{self.name} says {sound}"
 
+    def move(self, movement="run"):
+        return f"{self.name} moves so {movement}"
 
-buddy = Dog("Buddy", 9, "black")
-miles = Dog("Mile", 4, "green")
+class JackRussellTerrier(Dog):
+    def speak(self, sound="Arf"):
+        return super().speak(sound)
 
-print(buddy)
-print(miles.speak("'Woof'"))
-print(f"{buddy.name}'s coat is {buddy.coat_color}.")
+class GoldenRetriever(Dog):
+    def speak(self, sound="Woof"):
+        return super().speak(sound)
+
+class Dachshund(Dog):
+    species = "some latin word"
+
+class Bulldog(Dog):
+    pass
+
+""" Instantiating dogs of different breeds """
+
+miles = JackRussellTerrier("Miles", 4)
+buddy = Dachshund("Buddy", 9)
+jack = Bulldog("Jack", 3)
+jim = GoldenRetriever("Jim", 5)
+
+print(miles.speak())
+print(jim.move())
+print(buddy.species)
