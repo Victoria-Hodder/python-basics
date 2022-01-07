@@ -1,28 +1,55 @@
 class Animal:
-    def __init__(self, animal, name, sound, walk_style):
+    def __init__(self, animal, name):
         self.animal = animal
         self.name = name
-        self.sound = sound
-        self.walk_style = walk_style
 
-    def introduction(self):
+    def __str__(self):
         return f"On my farm, the {self.animal} is called {self.name}"
 
-    def speak(self):
-        return f"{self.name} the {self.animal} goes {self.sound}"
+    def speak(self, sound):
+        return f"The {self.animal} goes {sound}"
 
-    def move(self):
-        return f"{self.name} the {self.animal} walks {self.walk_style}"
+class Chicken(Animal):
+    def __init__(self, animal, name, appearance):
+        super().__init__(animal, name)
+        self.appearance = appearance
 
-chicken = Animal("chicken", "Delilah", "cluck", "quickly")
-cow = Animal("cow", "Daisy", "moo", "slowly")
-donkey = Animal("donkey", "Elif", "eeyore", "stubbornly")
+    def description(self):
+        return f"{self.name} has {self.appearance}"
+
+    def by_product(self):
+        return f"{self.name} lays eggs"
+
+class Cow(Animal):
+    def __init__(self, animal, name):
+        super().__init__(animal, name)
+
+    def by_product(self):
+        return f"{self.name} produces milk"
+
+class Donkey(Animal):
+    def __init__(self, animal, name):
+        super().__init__(animal, name)
+
+    def task(self, burden="small children"):
+        return f"{self.name} the {self.animal} carries {burden}"
+
+    def speak(self, sound="hee-haw"):
+        return super().speak(sound)
 
 
-print(chicken.introduction())
-print(chicken.speak())
-print(chicken.move())
+chicken = Chicken("chicken", "Delilah", "green eyes and feathers")
+cow = Cow("cow", "Daisy")
+donkey = Donkey("donkey", "Elif")
 
-print(donkey.introduction())
+print(chicken)
+print(chicken.description())
+print(chicken.by_product(), "\n")
+
+print(cow)
+print(cow.speak("mooooo"))
+print(cow.by_product(), "\n")
+
+print(donkey)
+print(donkey.task())
 print(donkey.speak())
-print(donkey.move())
