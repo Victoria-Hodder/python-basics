@@ -19,8 +19,17 @@ print(file_path.exists())
 
 
 """
+Absolute vs. relative paths
+"""
+
+relative_path = pathlib.Path("Users/Victoria")
+absolute_path = relative_path.resolve()
+print(absolute_path)
+
+
+"""
 Accessing file path components
 """
 
-for directory in file_path.parents:
-    print(directory)
+# for directory in file_path.parents:
+#     print(directory)
