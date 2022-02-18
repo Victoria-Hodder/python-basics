@@ -14,4 +14,5 @@ with path.open(mode='w', encoding='utf-8') as file:
 
 with path.open(mode="r", encoding="utf-8") as file:
     for line in file.readlines():
-        print(line, end="")
+        if line[0].lower() == 'd':
+            print(line, end="")
