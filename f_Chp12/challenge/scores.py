@@ -6,6 +6,7 @@ scores = Path.home() / "workspace" / "python-basics" / "f_Chp12" / "challenge" /
 
 scores_dict = {}
 
+# Make score value an integer
 def process_row(row):
     row['score'] = int(row['score'])
     return row
@@ -14,20 +15,22 @@ scores_list = []
 with scores.open(mode="r", encoding="utf-8", newline="") as file:
     reader = csv.DictReader(file)
     for row in reader:
+        # print(process_row(row))
         scores_list.append(process_row(row))
 
-# Do something to find max scores here?
+# print(scores_list)
 
-# This only returns the highest score in the whole list
-max_score = max([item['score'] for item in scores_list])
-print(max_score)
+# Do something to find max scores here?
+user_scores = {}
 
 for item in scores_list:
-    for key, value in item.items():
-        print(f"{key}: {value}")
+    if item['name'] not in user_scores:
+        user_scores[item['name']] = [] # emtpy list to add one by one the scores
 
-# Create a new list 'high_scores'
-# Add the items to the list where each unique name has a highest score
+print(user_scores)
+
+# here add the score in the list of that name
+# you could also keeping only the max score instead of making a scores list and then doing max to them
 
 # renaming 'score' key to 'high_score'
 for item in scores_list:
