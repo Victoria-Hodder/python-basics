@@ -1,16 +1,17 @@
 import csv
 from pathlib import Path
 
-destination = Path.home() / "Documents" / "high_scores.csv"
-scores = Path.home() / "workspace" / "python-basics" / "f_Chp12" / "challenge" / "scores.csv"
+high_score_csv = Path.home() / "Documents" / "high_scores.csv"
+scores_csv = Path.home() / "workspace" / "python-basics" / "f_Chp12" / "challenge" / "scores.csv"
 
 # Make score value an integer
 def process_row(row):
     row['score'] = int(row['score'])
     return row
 
+# Reading from original scores csv
 scores_list = []
-with scores.open(mode="r", encoding="utf-8", newline="") as file:
+with scores_csv.open(mode="r", encoding="utf-8", newline="") as file:
     reader = csv.DictReader(file)
     for row in reader:
         scores_list.append(process_row(row))
@@ -34,7 +35,7 @@ high_scores = []
 for name, scores in user_scores.items():
     high_scores.append({"name": name, "high_score": max(scores)})
 
-with destination.open(mode='w', encoding='utf-8', newline='') as file:
+with high_score_csv.open(mode='w', encoding='utf-8', newline='') as file:
     writer = csv.DictWriter(file, fieldnames = ["name", "high_score"])
     writer.writeheader()
     writer.writerows(high_scores)
