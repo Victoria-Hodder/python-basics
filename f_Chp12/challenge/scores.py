@@ -17,12 +17,14 @@ with scores_csv.open(mode="r", encoding="utf-8", newline="") as file:
         scores_list.append(process_row(row))
 
 # Collecting player scores
+# {"Victoria": [123, 32, 47], "Meili": [97, 43]}
 user_scores = {}
 for item in scores_list:
     if item['name'] not in user_scores:
         user_scores[item['name']] = [] # emtpy list to add one by one the scores
     user_scores[item['name']].append(item['score'])
 
+print(user_scores)
 # high_scores as a dict:
 # {"Victoria": 45, "Meili": 56}
 # high_scores = {}
